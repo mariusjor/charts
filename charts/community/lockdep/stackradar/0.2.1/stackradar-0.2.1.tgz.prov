@@ -1,0 +1,70 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+annotations:
+  artifacthub.io/category: security
+  artifacthub.io/images: |
+    - name: stackradar-server
+      image: ghcr.io/lockdep/stackradar-server:0.2.0
+    - name: stackradar-client
+      image: ghcr.io/lockdep/stackradar-client:0.2.0
+    - name: postgres
+      image: docker.io/library/postgres:18-alpine
+  artifacthub.io/license: Apache-2.0
+  artifacthub.io/links: |
+    - name: Self-hosting guide
+      url: https://github.com/lockdep/stackradar/blob/main/docs/self-hosting/helm.md
+    - name: Chart upgrade notes
+      url: https://github.com/lockdep/helm-charts/blob/main/charts/stackradar/UPGRADING.md
+    - name: StackRadar release notes
+      url: https://github.com/lockdep/stackradar/releases
+apiVersion: v2
+appVersion: 0.2.0
+dependencies:
+- - alias: scanner
+  condition: scanner.enabled
+  name: stackradar-scanner
+  repository: oci://ghcr.io/lockdep/charts
+  version: 0.7.1
+description: 'StackRadar Community Edition: what is running in your Kubernetes cluster,
+  which of it is vulnerable, and what to move to. Installs the server, the UI, a bundled
+  Postgres and the scanner, already scanning the cluster it lands in.'
+home: https://stackradar.io
+icon: https://stackradar.io/apple-icon
+keywords:
+- - sbom
+- - security
+- - supply-chain
+- - vulnerabilities
+- - kubernetes
+kubeVersion: '>=1.25.0-0'
+maintainers:
+- - email: support@stackradar.io
+  name: StackRadar
+  url: https://stackradar.io
+name: stackradar
+sources:
+- - https://github.com/lockdep/helm-charts/tree/main/charts/stackradar
+- - https://github.com/lockdep/stackradar
+type: application
+version: 0.2.1
+
+...
+files:
+  stackradar-0.2.1.tgz: sha256:b48179e5f43b944381dac40e56e37e02ea8b5e55ccc40a2d7c3e1bb2f072a3c6
+-----BEGIN PGP SIGNATURE-----
+
+wsFcBAEBCgAQBQJq3Pi+CRDlSmRwSUPX0gAA9zgQAFek3Bfb982BtPypk6HTHXYM
+V5El2QV/gcg+hB1GZ0/2UCZPXU21u7mYexf6GvM3BNlnwUAWmGuuD0cRt7jT8iZs
+E+5ZVFxLgWRLG2RJmKdTCOAUg14H/q52PwvdnAZ5emUMOW2t3tXfV9rhaIlbEhlZ
+3aAvHrGMh9xJXSH7rKcywY64y/XBTybm9FeVn+pNjwZyuszk2kAmsOibAKcwijdW
+hVLaRnUNOH6tfqH3/xB+O763ZcSiYOuYs3+lNd7KaOlBJjeXp3b9dyD6rR5uOgYC
+BncDkCPGeB82WNz/v2BKK5rwuwRaFRJ5OnxCFASz0hAwhPwqhxLJnCsvhlBZdg1Q
+fjAcTjWG5eDi8oVpNnycWHM1gH5aLBKKaunClhRfYdCyEZmB2TFKdwaLkzgO5f3c
+n46Kbk9mUbkFiqxg5oNX4T6KHoV6opUv5181dgiF6i5Z/RW8xDedGNHNLVwSAOdW
+xAm3SweVHBKgaN38r5AMc9C+kMr/qmXFsfxX4bt2QAMlGzZ3YY7jsN1O0KytaiIP
+G1sJSt8LnMpyBTjbMjpAGk2Qa20Vig3nr1MWNg4OviWq9PTkijb4KceNSssaHxRN
+emphSeJ/hZsqAPD36Taer+Ft+/d6akc/lL0mxe3TnEUWWlBCx7TuBlFEJ1jgApC7
+Xoni5UKKU89uOm6VxxK1
+=Rp3V
+-----END PGP SIGNATURE-----
